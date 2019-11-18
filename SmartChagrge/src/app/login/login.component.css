@@ -1,0 +1,68 @@
+/* pages/login/login.wxss */
+.title-view {
+  font-size: 30px;
+  line-height: 125px;
+  vertical-align: middle;
+  font-family: '宋体';
+  color: #333333;
+}
+
+.phone {
+  height: 35px;
+  border-bottom:1px solid #f0f0f0;
+}
+
+.input-container {
+  /* background-color: coral; */
+  height: 110px;
+}
+
+.icon {
+  width: 25px;
+  height: 25px;
+  float: left;
+}
+
+input {
+  padding-left: 25px;
+  width: 50%;
+}
+
+.code {
+  height: 35px;
+  border-bottom:1px solid #f0f0f0;
+  margin-top: 12px;
+}
+
+.send-code {
+  float: right;
+  width: 90px;
+  font-size: 14px;
+  color: #333;
+}
+
+.count-down {
+  float: right;
+  width: 80px;
+  margin-top: -20px;
+  font-size: 14px;
+  color: #888;
+}
+
+.phone-login-bottom-protocol{
+  font-size: 13px;
+  margin-top: 10px;
+}
+.aggree-protocol-normal{
+  display: inline-block;
+  color: #999999
+}
+.aggree-protocol-select{
+  display: inline-block;
+  color: #5F6F89
+}
+
+.login-button {
+  background-color: #09508e;
+  color: white;
+}
