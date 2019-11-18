@@ -7,6 +7,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import {FormsModule} from '@angular/forms';
 import {CoreModule} from './core/core.module';
+import {NgxLoadingModule} from 'ngx-loading';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,9 @@ import {CoreModule} from './core/core.module';
     AppRoutingModule,
     CoreModule,
     FormsModule,
+    NgxLoadingModule.forRoot({
+      fullScreenBackdrop: true
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

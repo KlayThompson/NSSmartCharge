@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ngxLoadingAnimationTypes} from 'ngx-loading';
 
 @Component({
   selector: 'app-login',
@@ -7,7 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  public loading = true;
+  loading = true;
+  config = {animationType: ngxLoadingAnimationTypes.rectangleBounce};
   showSendCodeBtn = true;
   count = 60;
   phone = '';
