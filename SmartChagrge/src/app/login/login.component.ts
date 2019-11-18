@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ngxLoadingAnimationTypes} from 'ngx-loading';
 import {ToastService} from '../service/toast.service';
 
 @Component({
@@ -9,6 +10,7 @@ import {ToastService} from '../service/toast.service';
 export class LoginComponent implements OnInit {
 
   loading = false;
+  config = {animationType: ngxLoadingAnimationTypes.rectangleBounce};
   showSendCodeBtn = true;
   count = 60;
   phone = '';
