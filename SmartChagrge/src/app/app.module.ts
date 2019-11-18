@@ -8,6 +8,7 @@ import { LoginComponent } from './login/login.component';
 import {FormsModule} from '@angular/forms';
 import {CoreModule} from './core/core.module';
 import {NgxLoadingModule} from 'ngx-loading';
+import {ToastaModule} from '../../projects/ngx-toasta/src/lib/toasta.module';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import {NgxLoadingModule} from 'ngx-loading';
     FormsModule,
     NgxLoadingModule.forRoot({
       fullScreenBackdrop: true
-    })
+    }),
+    ToastaModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
