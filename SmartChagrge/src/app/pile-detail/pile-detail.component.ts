@@ -72,4 +72,8 @@ export class PileDetailComponent implements OnInit {
   ngOnInit() {
   }
 
+  selectSwitch(item: any) {
+    console.log(item);
+  }
+
 }
