@@ -28,10 +28,11 @@ export class LoginComponent implements OnInit {
 
   loginButtonClick() {
     if (this.phone.toString().length !== 11) {
-      this.toastService.showToast('请输入正确的手机号');
+      this.toastService.showToast('请输入正确的手机号', 'warning');
       return;
     }
     if (this.vCode.toString().length !== 6) {
+      this.toastService.showToast('请输入正确验证码', 'warning');
       return;
     }
     this.loading = true;
@@ -42,7 +43,7 @@ export class LoginComponent implements OnInit {
       }
     }, () => {
       this.loading = false;
-      this.toastService.showToast('登录失败，请检查网络连接');
+      this.toastService.showToast('登录失败，请检查网络连接', 'error');
     });
   }
 
@@ -52,7 +53,7 @@ export class LoginComponent implements OnInit {
       return;
     }
     if (this.phone.toString().length !== 11) {
-      this.toastService.showToast('请输入正确的手机号');
+      this.toastService.showToast('请输入正确的手机号', 'warning');
       return;
     }
     this.loading = true;
@@ -63,7 +64,7 @@ export class LoginComponent implements OnInit {
       }
     }, () => {
       this.loading = false;
-      this.toastService.showToast('验证码发送失败，请检查网络连接');
+      this.toastService.showToast('验证码发送失败，请检查网络连接', 'error');
     });
   }
 }

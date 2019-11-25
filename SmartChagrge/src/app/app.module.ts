@@ -8,7 +8,7 @@ import { LoginComponent } from './login/login.component';
 import {FormsModule} from '@angular/forms';
 import {CoreModule} from './core/core.module';
 import {NgxLoadingModule} from 'ngx-loading';
-import {ToastaModule} from '../../projects/ngx-toasta/src/lib/toasta.module';
+import {ToastaModule} from 'ngx-toasta';
 
 @NgModule({
   declarations: [
