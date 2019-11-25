@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {ngxLoadingAnimationTypes} from 'ngx-loading';
 import {ToastService} from '../service/toast.service';
 import {LoginService} from '../service/login.service';
-import {Md5} from 'ts-md5';
 
 @Component({
   selector: 'app-login',

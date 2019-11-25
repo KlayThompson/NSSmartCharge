@@ -33,6 +33,5 @@ export class ToastService {
       case 'error': this.toastaService.error(toastOptions); break;
       case 'warning': this.toastaService.warning(toastOptions); break;
     }
-    // this.toastaService.success(toastOptions);
   }
 }
