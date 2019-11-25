@@ -1,0 +1,133 @@
+/* pages/plugCharger/plugCharger.wxss */
+
+page{
+  background-color:#f6f9f6;
+}
+.full-container{
+  background-color:#f6f9f6;
+  padding-top:7px;
+}
+.title {
+  font-size: 17px;
+  color: #333;
+  padding-top: 10px;
+  font-weight: 500;
+}
+
+.tip-text {
+  padding: 25px 15px 15px 22px;
+  color: #333;
+  font-size: 14px;
+}
+
+.VerticalLine {
+  width: 3px;
+  background-color: #1296db;
+  height: 22px;
+  float: left;
+}
+
+.titleText {
+  margin-left: 10px;
+  color: #333;
+}
+
+.directionView {
+  margin-top: 20px;
+}
+
+.empty-line {
+  float: left;
+  width: 20px;
+  height: 5px;
+  background-color: #3e9e6e;
+  margin-left: 25px;
+  margin-top: 8px;
+}
+
+.inuse-line {
+  float: left;
+  width: 20px;
+  height: 5px;
+  background-color: #bfbfbf;
+  margin-left: 25px;
+  margin-top: 8px;
+}
+
+.error-line {
+  float: left;
+  width: 20px;
+  height: 5px;
+  background-color: #F56C6C;
+  margin-left: 25px;
+  margin-top: 8px;
+}
+
+.text {
+  float: left;
+  margin-left: 10px;
+  color: #333;
+  font-size: 14px;
+}
+
+.text1 {
+  color: #333;
+  margin-left: 10px;
+  font-size: 14px;
+  vertical-align: top;
+}
+
+/* .plug-all-bg {
+  background-color: white;
+} */
+
+.plug-bg {
+  width: 25%;
+  text-align: center;
+  margin-top: 10px;
+  display: inline-block;
+}
+
+.plug-img {
+  width: 50px;
+  height: 50px;
+}
+
+.plug-text {
+  color: #333;
+}
+
+.money-select-bg {
+  margin-left: 12px;
+}
+
+.money-card {
+  width: 80px;
+  height: 50px;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 50px;
+  margin: 10px;
+  box-shadow: 0px 1px 2px 2px rgb(215, 215, 215);
+}.card-select {
+   background-color: #eeac57;
+   color: white;
+ }
+
+.price-text {
+  float: left;
+  margin-left: 22px;
+  font-size: 14px;
+  color: #333;
+}
+
+button {
+  background-color: #09508e;
+  color: white;
+}
+
+.subTitle {
+  padding-top: 20px;
+  /* background-color: white; */
+}

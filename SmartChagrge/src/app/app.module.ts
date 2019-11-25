@@ -9,12 +9,14 @@ import {FormsModule} from '@angular/forms';
 import {CoreModule} from './core/core.module';
 import {NgxLoadingModule} from 'ngx-loading';
 import {ToastaModule} from 'ngx-toasta';
+import { PileDetailComponent } from './pile-detail/pile-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    PileDetailComponent
   ],
   imports: [
     BrowserModule,

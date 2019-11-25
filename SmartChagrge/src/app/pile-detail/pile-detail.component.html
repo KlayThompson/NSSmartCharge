@@ -1,0 +1,38 @@
+<div  >
+  <div class="title">充电柜编号：{{pileNum}}</div>
+  <div class="subTitle">
+    <div class="VerticalLine"></div>
+    <span class="titleText">选择插座</span>
+  </div>
+
+  <div class="directionView">
+    <div class="empty-line"></div>
+    <span class="text">可使用</span>
+    <div class="inuse-line"></div>
+    <span class="text">占用中</span>
+    <div class="error-line"></div>
+    <span class="text1">故障</span>
+  </div>
+  <!-- 选择插座 -->
+  <div class="plug-all-bg">
+    <div class="plug-bg {{item.select ? 'know' : ''}}" *ngFor="let item of plugList">
+      <img class="plug-img" *ngIf="!item.select else SelectImg" src="{{item.src}}"/>
+      <ng-template #SelectImg>
+        <img class="plug-img" src='../../assets/plug_select.png'/>
+      </ng-template>
+      <div class="plug-text">{{item.title}}</div>
+    </div>
+  </div>
+
+  <div class="subTitle">
+    <div class="VerticalLine"></div>
+    <span class="titleText">充电金额</span>
+  </div>
+  <div class="money-select-bg">
+    <div class="money-card {{select1 ? 'card-select' : ''}}" bindtap="selectMoney" data-money="1">1元</div>
+    <div class="money-card {{select2 ? 'card-select' : ''}}" bindtap="selectMoney" data-money="2">2元</div>
+  </div>
+  <div class="price-text">1元3小时，2元6小时</div>
+  <div class="tip-text"><span class="title">温馨提示：</span>开启充电前请务必先确保已连接插头，充电金额自动从钱包扣除，如余额不足可在线充值</div>
+  <button class="btn btn-block" [disabled]="submitDisable" bindtap="startCharge">选择支付方式</button>
+</div>

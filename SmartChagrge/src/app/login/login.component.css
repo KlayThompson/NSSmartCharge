@@ -44,7 +44,6 @@ input {
 .count-down {
   float: right;
   width: 80px;
-  margin-top: -20px;
   font-size: 14px;
   color: #888;
 }
