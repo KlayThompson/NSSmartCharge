@@ -1,5 +1,6 @@
 import {NgModule} from '@angular/core';
 import {ToastService} from './toast.service';
+import {LoginService} from './login.service';
 
 @NgModule()
 export class ServiceModule {
@@ -7,7 +8,8 @@ export class ServiceModule {
     return {
       ngModule: ServiceModule,
       providers: [
-        ToastService
+        ToastService,
+        LoginService
       ]
     };
   }

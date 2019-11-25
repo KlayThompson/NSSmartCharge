@@ -3,14 +3,13 @@
   <div class="input-container">
     <div class="phone">
       <img src="../../assets/phone_number.png" class="icon">
-      <input placeholder="请输入手机号" type="number" [ngModel]="phone" maxlength="11">
+      <input placeholder="请输入手机号" type="number" [(ngModel)]="phone" maxlength="11">
     </div>
     <div class="code">
       <img src="../../assets/verify_code.png" class="icon">
-      <input placeholder="请输入验证码" type="number" [ngModel]="vCode" maxlength="6">
-      <!--<div (click)="sendCode" class="send-code" *ngIf='{{showSendCodeBtn}}'>获取验证码</div>-->
-      <!--<template else class="count-down">{{count}}秒</template>-->
-      <div (click)="sendCode()" class="send-code">获取验证码</div>
+      <input placeholder="请输入验证码" type="number" [(ngModel)]="vCode" maxlength="6">
+      <div (click)="sendCode()" class="send-code" *ngIf=showSendCodeBtn>获取验证码</div>
+      <template else class="count-down">{{count}}秒</template>
     </div></div>
 
   <button class="btn btn-block login-button" (click)="loginButtonClick()">登录</button>
