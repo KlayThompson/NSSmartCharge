@@ -29,10 +29,12 @@
     <span class="titleText">充电金额</span>
   </div>
   <div class="money-select-bg">
-    <div class="money-card {{select1 ? 'card-select' : ''}}" bindtap="selectMoney" data-money="1">1元</div>
-    <div class="money-card {{select2 ? 'card-select' : ''}}" bindtap="selectMoney" data-money="2">2元</div>
+    <div class="money-card {{select1 ? 'card-select' : ''}}" (click)="selectMoney(1)" data-money="1">1元</div>
+    <div class="money-card {{select2 ? 'card-select' : ''}}" (click)="selectMoney(2)" data-money="2">2元</div>
   </div>
   <div class="price-text">1元3小时，2元6小时</div>
   <div class="tip-text"><span class="title">温馨提示：</span>开启充电前请务必先确保已连接插头，充电金额自动从钱包扣除，如余额不足可在线充值</div>
-  <button class="btn btn-block" [disabled]="submitDisable" bindtap="startCharge">选择支付方式</button>
+  <button class="btn btn-block" [disabled]="submitDisable" (click)="startCharge()">开始充电</button>
+  <ngx-loading [show]="loading" [config]="config"></ngx-loading>
 </div>
+<ngx-toasta></ngx-toasta>

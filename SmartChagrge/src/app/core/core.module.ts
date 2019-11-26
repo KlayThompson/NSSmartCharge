@@ -18,12 +18,9 @@ import {AppRoutingModule} from '../app-routing.module';
     {
       provide: 'BASE_CONFIG',
       useValue: {
-        // uri: 'http://172.16.1.2:4201/aycharge'  // dev
-        uri: 'http://tapp.anyocharging.com:4201/aycharge',  // test
-        // uri: 'http://10.135.66.38:4201/aycharge'  // stage
-        // uri: 'http://ndzd.anyocharging.com:4201/aycharge'  // production
-        appkey: 'UtOCzqb67d3sN12Kts4URwy8',
-        appid: '123'
+        uri: 'https://tapp.anyocharging.com:12333',  // dev
+        appKey: 'UtOCzqb67d3sN12Kts4URwy8',
+        appId: '123'
       }
     }
   ]

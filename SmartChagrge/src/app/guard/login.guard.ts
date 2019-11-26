@@ -15,9 +15,9 @@ export class LoginGuard implements CanActivate {
   }
 
   checkLogin(url: string): boolean {
-    console.log('AuthGuard#canActivate called');
-    const isLogin: boolean = Math.random() < 0.5;
-    if (isLogin) {
+
+    const token = localStorage.getItem('TOKEN');
+    if (token.length > 0) {
       return true;
     }
 

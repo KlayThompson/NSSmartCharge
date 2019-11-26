@@ -2,6 +2,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ngxLoadingAnimationTypes} from 'ngx-loading';
 import {ToastService} from '../service/toast.service';
 import {LoginService} from '../service/login.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -26,7 +27,8 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   constructor(
     private toastService: ToastService,
-    private loginService: LoginService
+    private loginService: LoginService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -45,10 +47,11 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.loading = true;
     this.loginService.login(this.phone, this.vCode).subscribe(value => {
       this.loading = false;
-      if (value.code === 0) {
-        console.log('');
-      }
-    }, () => {
+      console.log(value.phoneNumber);
+      localStorage.setItem('TOKEN', value.sessionToken);
+      this.toastService.showToast('登录成功！');
+      this.router.navigate(['/home']);
+    }, (err) => {
       this.loading = false;
       this.toastService.showToast('登录失败，请检查网络连接', 'error');
     });
@@ -64,24 +67,17 @@ export class LoginComponent implements OnInit, OnDestroy {
       return;
     }
     this.loading = true;
-    this.loginService.sendVerityCode(this.phone).subscribe(value => {
-      this.loading = false;
+    this.loginService.sendVerityCode(this.phone).subscribe(() => {
       const that = this;
-      if (value.code === 0) {
-        this.toastService.showToast('验证码已发送');
-        this.showSendCodeBtn = false;
-        this.timeInterval = setInterval(function () {
-          that.countdown();
-        }, 1000);
-      }
-    }, () => {
       this.loading = false;
-      this.toastService.showToast('验证码发送失败，请检查网络连接', 'error');
-      const that = this;
       this.showSendCodeBtn = false;
+      this.toastService.showToast('验证码已发送');
       this.timeInterval = setInterval(function () {
         that.countdown();
       }, 1000);
+    }, () => {
+      this.loading = false;
+      this.toastService.showToast('验证码发送失败，请检查网络连接', 'error');
     });
   }
 
@@ -92,7 +88,6 @@ export class LoginComponent implements OnInit, OnDestroy {
     } else {
       this.count--;
     }
-    console.log(this.count);
   }
 
   cleanTimeOut() {
