@@ -14,6 +14,6 @@ export class HomeComponent implements OnInit {
   }
 
   scanCode() {
-    this.router.navigate(['/login']);
+    this.router.navigate(['/pileInfo', {pileNum: '00000868343040852209'}]);
   }
 }

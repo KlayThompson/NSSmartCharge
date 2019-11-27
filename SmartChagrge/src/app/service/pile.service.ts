@@ -2,7 +2,7 @@ import {Inject, Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Md5} from 'ts-md5';
 import { Observable } from 'rxjs';
-import {PileChargingModel, PileInfoModel} from '../model/pile.model';
+import {PileChargingModel, PileInfoModel, PileOrderModel} from '../model/pile.model';
 
 @Injectable({
   providedIn: 'root'
@@ -34,5 +34,10 @@ export class PileService {
   startCharging(pileId: string, switchNo: string, duration: number): Observable<PileChargingModel> {
     const uri = `${this.config.uri}/v1/chargingapi/pile/record`;
     return this.http.post<PileChargingModel>(uri, {pileId, switchNo, duration}, {headers: this.headers});
+  }
+
+  getChargingInfo(recordId: string): Observable<PileOrderModel> {
+    const uri = `${this.config.uri}/v1/chargingapi/pile/record/${recordId}`;
+    return this.http.get<PileOrderModel>(uri, {headers: this.headers});
   }
 }

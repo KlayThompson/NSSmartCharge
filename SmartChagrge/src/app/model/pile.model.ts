@@ -35,3 +35,17 @@ export class PileChargingModel {
   status: string;
   switchNo: 0;
 }
+
+export class PileOrderModel {
+  electricQuantity: string;
+  completeReason: string;
+  duration: number;
+  endTime: string;
+  msg: string;
+  pileId: string;
+  pileNumber: string;
+  recordId: string;
+  startTime: string;
+  status: string;
+  switchNo: string;
+}

@@ -3,6 +3,7 @@ import {PileService} from '../service/pile.service';
 import {ToastService} from '../service/toast.service';
 import {ngxLoadingAnimationTypes} from 'ngx-loading';
 import {SwitchModel} from '../model/pile.model';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-pile-detail',
@@ -13,7 +14,7 @@ export class PileDetailComponent implements OnInit {
 
   loading = false;
   config = {animationType: ngxLoadingAnimationTypes.rectangleBounce};
-  pileNum = '00000868343040852209';
+  pileNum = '';
   pileId = '';
   select1 = false;
   select2 = false;
@@ -22,9 +23,12 @@ export class PileDetailComponent implements OnInit {
   constructor(
     private pileService: PileService,
     private toastService: ToastService,
+    private router: Router,
+    private route: ActivatedRoute,
     ) { }
 
   ngOnInit() {
+    this.route.paramMap.subscribe(pmap => this.pileNum = pmap.get('pileNum'));
     this.loading = true;
     this.pileService.getPileInfo(this.pileNum).subscribe(value => {
       this.loading = false;
@@ -113,6 +117,7 @@ export class PileDetailComponent implements OnInit {
       this.loading = false;
       console.log('开启充电成功' + value.recordId);
       this.toastService.showToast('开启充电成功！');
+      this.router.navigate(['/pileCharging', {recordId: value.recordId}], {skipLocationChange: true});
     }, error1 => {
       this.loading = false;
       this.toastService.showToast('获取数据失败！', 'error');
