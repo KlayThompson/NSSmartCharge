@@ -1,0 +1,42 @@
+<div class="full-container">
+  <div class="charging-img">
+    <div class="charging-status">
+      <div class="distance-info">
+        <span class="charging-add-distandce" wx:if="{{order.electricQuantity != 0}}">{{order.electricQuantity}}</span>
+        <span class="charging-add-distandce" wx:if="{{order.electricQuantity == 0}}">0</span>
+        <span class="distance-add-title">kWh</span>
+      </div>
+      <img src='../../assets/icon_add_distance8.png' class="charging-status-img">
+    </div>
+    <div class="order-km-form">充电电量</div>
+    <div class="order-wave-bk">
+      <img src="../../assets/order_wave.png" class="order-wave-img">
+    </div>
+  </div>
+  <div class="charging-info">
+    <div class="charging-info-item charging-fee {{showdetail ? 'info-has-border' : ''}}" bindtap="showDetail">
+      <div class="each-cahrging-icon">
+        <img src="../../assets/devicenumber.jpg">
+      </div>
+      <span class="charging-info-title">充电详情</span>
+      <!-- <span class="charging-info-value">12元</span> -->
+      <img src="../../assets/arrow-right.png.jpg" wx:if="{{!showdetail}}" class="arrow-img" />
+      <img src="../../assets/arrow-bottom.png" wx:if="{{showdetail}}" class="arrow-img" />
+    </div>
+    <div class="charging-info-item-detail" wx:if="{{showdetail}}">
+      <div class="each-charging-fee">
+        <div class="charging-info-detail-title">充电桩号</div>
+        <div class="charging-info-detail-value">{{order.pileNumber}}</div>
+      </div>
+      <div class="each-charging-fee">
+        <div class="charging-info-detail-title">开关号</div>
+        <div class="charging-info-detail-value">{{order.switchNo}}号</div>
+      </div>
+      <div class="each-charging-fee ">
+        <div class="charging-info-detail-title">充电时长</div>
+        <div class="charging-info-detail-value">{{duration}}</div>
+      </div>
+    </div>
+  </div>
+  <img class="adContainer" src="../../assets/banner_pic.jpeg">
+</div>

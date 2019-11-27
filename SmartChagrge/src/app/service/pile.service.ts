@@ -1,7 +1,7 @@
 import {Inject, Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Md5} from 'ts-md5';
-import { of as observableOf,  Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import {PileChargingModel, PileInfoModel} from '../model/pile.model';
 
 @Injectable({

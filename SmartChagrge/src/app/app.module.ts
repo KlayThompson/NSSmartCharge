@@ -10,13 +10,15 @@ import {CoreModule} from './core/core.module';
 import {NgxLoadingModule} from 'ngx-loading';
 import {ToastaModule} from 'ngx-toasta';
 import { PileDetailComponent } from './pile-detail/pile-detail.component';
+import { PileChargingComponent } from './pile-charging/pile-charging.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     LoginComponent,
-    PileDetailComponent
+    PileDetailComponent,
+    PileChargingComponent
   ],
   imports: [
     BrowserModule,
