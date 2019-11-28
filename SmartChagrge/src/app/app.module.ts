@@ -11,6 +11,8 @@ import {NgxLoadingModule} from 'ngx-loading';
 import {ToastaModule} from 'ngx-toasta';
 import { PileDetailComponent } from './pile-detail/pile-detail.component';
 import { PileChargingComponent } from './pile-charging/pile-charging.component';
+import { UserCenterComponent } from './user-center/user-center.component';
+import { OrderListComponent } from './order-list/order-list.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { PileChargingComponent } from './pile-charging/pile-charging.component';
     HomeComponent,
     LoginComponent,
     PileDetailComponent,
-    PileChargingComponent
+    PileChargingComponent,
+    UserCenterComponent,
+    OrderListComponent
   ],
   imports: [
     BrowserModule,

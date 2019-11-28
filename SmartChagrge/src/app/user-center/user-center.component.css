@@ -1,0 +1,77 @@
+.selfblock-container{
+  height:100%;
+  width:100%;
+  background-color:#f6f9f6;
+}
+.usercenter-list-icon{
+  height:23px;
+  width:23px;
+  margin-top:13px;
+  float:left;
+  margin-right:8px;
+}
+.user-info{
+  height:180px;
+  width:100%;
+  padding-top:50px;
+  border-bottom:1px solid #ddd;
+  background-color:#09508e;
+}
+.user-photo{
+  height:50px;
+  width:50px;
+  margin:0 auto;
+  border-radius:25px;
+  margin-bottom:10px;
+}
+.user-photo img{
+  width:100%;
+  height:100%;
+  border-radius:25px;
+}
+.user-name{
+  width:100%;
+  height:15px;
+  line-height:15px;
+  text-align:center;
+  margin-top:7px;
+  font-size:18px;
+  color:#fff;
+}
+.usercenter-list{
+  margin-top:15px;
+  background-color:#fff;
+  border-top: 1px solid #dcdcdc;
+  border-bottom:1px solid #dcdcdc;
+}
+.usercenter-nav{
+  padding:0 15px;
+  height:50px;
+  line-height:50px;
+  font-size:16px;
+  border-bottom:1px solid #fff;
+}
+.change-user{
+  height:45px;
+  font-size:16px;
+  text-align:center;
+  line-height:40px;
+  width:100%;
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  border-top:1px solid #ddd;
+}
+.change-user-nav{
+  height:100%;
+}
+.has-border-bottom{
+  border-bottom:1px solid #dcdcdc;
+}
+.usercenter-list-arrow-icon{
+  height:23px;
+  width:23px;
+  margin-top:13px;
+  float:right;
+}

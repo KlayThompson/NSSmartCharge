@@ -7,6 +7,8 @@ import {PileDetailComponent} from './pile-detail/pile-detail.component';
 import {LoginGuard} from './guard/login.guard';
 import {AppComponent} from './app.component';
 import {PileChargingComponent} from './pile-charging/pile-charging.component';
+import {UserCenterComponent} from './user-center/user-center.component';
+import {OrderListComponent} from './order-list/order-list.component';
 
 const routes: Routes = [
   {
@@ -21,6 +23,8 @@ const routes: Routes = [
           {path: 'login', component: LoginComponent},
           {path: 'pileInfo', component: PileDetailComponent},
           {path: 'pileCharging', component: PileChargingComponent},
+          {path: 'user', component: UserCenterComponent},
+          {path: 'orderList', component: OrderListComponent},
           {path: '', redirectTo: '/home', pathMatch: 'full'},
         ]
       }

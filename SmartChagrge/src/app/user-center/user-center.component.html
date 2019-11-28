@@ -1,0 +1,50 @@
+<div class="selfblock-container">
+  <div class="user-info">
+    <div class="user-photo">
+      <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1568972959722&di=525def159ea8219176f08779744ddf75&imgtype=0&src=http%3A%2F%2Fa0.att.hudong.com%2F83%2F73%2F01300543312403143631739676814_s.jpg" alt="">
+    </div>
+    <div class="user-name">
+      <span>{{userName}}</span>
+    </div>
+  </div>
+  <div class="usercenter-list">
+    <div [routerLink]="walletUrl" class="usercenter-nav">
+      <div class="has-border-bottom">
+        <img src="../../assets/money.png" class="usercenter-list-icon" alt="">
+        我的钱包
+        <img src="../../assets/arrow-right.png" class="usercenter-list-arrow-icon" alt="">
+      </div>
+    </div>
+    <div [routerLink]="packageUrl"  class="usercenter-nav">
+      <div class="has-border-bottom">
+        <img src="../../assets/youhuiquan.png" class="usercenter-list-icon" alt="">
+        我的套餐
+        <img src="../../assets/arrow-right.png" class="usercenter-list-arrow-icon" alt="">
+      </div>
+    </div>
+    <div [routerLink]="batteryUrl"  class="usercenter-nav">
+      <div class="has-border-bottom">
+        <img src="../../assets/battery.png" class="usercenter-list-icon" alt="">
+        我的电池
+        <img src="../../assets/arrow-right.png" class="usercenter-list-arrow-icon" alt="">
+      </div>
+    </div>
+    <div [routerLink]="orderListUrl"  class="usercenter-nav">
+      <div class="has-border-bottom">
+        <img src="../../assets/order_list.png" alt="" class="usercenter-list-icon">
+        我的订单
+        <img src="../../assets/arrow-right.png" alt="" class="usercenter-list-arrow-icon">
+      </div>
+    </div>
+    <div [routerLink]="carUrl" class="usercenter-nav">
+      <div>
+        <img src="../../assets/diandongche.png" alt="" class="usercenter-list-icon">
+        我的车辆
+        <img src="../../assets/arrow-right.png" alt="" class="usercenter-list-arrow-icon">
+      </div>
+    </div>
+  </div>
+  <div class="change-user">
+    <button class="change-user-nav" (click)="changeUser()">切换账号</button>
+  </div>
+</div>
