@@ -4,6 +4,7 @@ import {ToastService} from '../service/toast.service';
 import {ngxLoadingAnimationTypes} from 'ngx-loading';
 import {SwitchModel} from '../model/pile.model';
 import {ActivatedRoute, Router} from '@angular/router';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-pile-detail',
@@ -25,6 +26,7 @@ export class PileDetailComponent implements OnInit {
     private toastService: ToastService,
     private router: Router,
     private route: ActivatedRoute,
+    private location: Location
     ) { }
 
   ngOnInit() {
@@ -117,7 +119,8 @@ export class PileDetailComponent implements OnInit {
       this.loading = false;
       console.log('开启充电成功' + value.recordId);
       this.toastService.showToast('开启充电成功！');
-      this.router.navigate(['/pileCharging', {recordId: value.recordId}], {skipLocationChange: true});
+      this.location.replaceState('/pileCharging');
+      this.router.navigate(['/pileCharging', {recordId: value.recordId}]);
     }, error1 => {
       this.loading = false;
       this.toastService.showToast('获取数据失败！', 'error');

@@ -4,6 +4,7 @@ import {PileService} from '../service/pile.service';
 import {ToastService} from '../service/toast.service';
 import {ngxLoadingAnimationTypes} from 'ngx-loading';
 import {ActivatedRoute, Router} from '@angular/router';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-pile-charging',
@@ -37,6 +38,7 @@ export class PileChargingComponent implements OnInit, OnDestroy {
     private toastService: ToastService,
     private route: ActivatedRoute,
     private router: Router,
+    private location: Location
   ) { }
 
   ngOnDestroy(): void {
@@ -47,6 +49,11 @@ export class PileChargingComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.route.paramMap.subscribe(pmap => this.recordId = pmap.get('recordId'));
+    if (this.recordId ===  '' || !this.recordId) {
+      console.log('error: no record id');
+      this.router.navigate(['/home']);
+      return;
+    }
     this.loading = true;
     this.pileService.getChargingInfo(this.recordId).subscribe(value => {
       this.loading = false;
@@ -54,7 +61,8 @@ export class PileChargingComponent implements OnInit, OnDestroy {
       if (value.status === '结束') {
         clearInterval(this.timeInterval);
         this.toastService.showToast('充电结束');
-        this.router.navigate(['/home'], {skipLocationChange: true});
+        this.location.replaceState('/home');
+        this.router.navigate(['/home']);
       } else {
         this.calculateDuration();
       }
@@ -75,7 +83,8 @@ export class PileChargingComponent implements OnInit, OnDestroy {
       if (value.status === '结束') {
         clearInterval(this.timeInterval);
         this.toastService.showToast('充电结束');
-        this.router.navigate(['/home'], {skipLocationChange: true});
+        this.location.replaceState('/home');
+        this.router.navigate(['/home']);
       } else {
         this.calculateDuration();
       }

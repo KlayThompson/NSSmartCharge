@@ -18,7 +18,7 @@ import {AppRoutingModule} from '../app-routing.module';
     {
       provide: 'BASE_CONFIG',
       useValue: {
-        uri: 'https://tapp.anyocharging.com:12333',  // dev
+        uri: 'http://139.198.176.116:12333',  // dev
         appKey: 'UtOCzqb67d3sN12Kts4URwy8',
         appId: '123'
       }
