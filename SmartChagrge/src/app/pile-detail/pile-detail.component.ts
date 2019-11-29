@@ -115,15 +115,22 @@ export class PileDetailComponent implements OnInit {
     } else {
       time = 3600 * 6;
     }
-    this.pileService.startCharging(this.pileId, switchId, time).subscribe(value => {
-      this.loading = false;
-      console.log('开启充电成功' + value.recordId);
-      this.toastService.showToast('开启充电成功！');
-      this.location.replaceState('/pileCharging');
-      this.router.navigate(['/pileCharging', {recordId: value.recordId}]);
-    }, error1 => {
-      this.loading = false;
-      this.toastService.showToast('获取数据失败！', 'error');
-    });
+    let money = '';
+    if (this.select1) {
+      money = '1';
+    } else {
+      money = '2';
+    }
+    // this.pileService.startCharging(this.pileId, switchId, time).subscribe(value => {
+    //   this.loading = false;
+    //   console.log('开启充电成功' + value.recordId);
+    //   this.toastService.showToast('开启充电成功！');
+    //   this.location.replaceState('/pileCharging');
+    //   this.router.navigate(['/pileCharging', {recordId: value.recordId}]);
+    // }, error1 => {
+    //   this.loading = false;
+    //   this.toastService.showToast('获取数据失败！', 'error');
+    // });
+    this.router.navigate(['/payType', {selectMoney: money, selectTime: time, pileId: this.pileId, selectSwitchId: switchId}]);
   }
 }

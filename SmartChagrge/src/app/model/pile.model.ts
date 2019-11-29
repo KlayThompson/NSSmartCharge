@@ -49,3 +49,12 @@ export class PileOrderModel {
   status: string;
   switchNo: string;
 }
+
+export class PileOrderListModel {
+  currentPage: 0;
+  msg: string;
+  pageNum: 0;
+  pageSize: 0;
+  recordInfos: PileOrderModel[] = [];
+}
+

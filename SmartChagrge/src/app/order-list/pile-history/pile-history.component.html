@@ -1,0 +1,10 @@
+<mat-list>
+  <mat-list-item *ngFor="let order of orderList" (click)="itemClick(order)">
+    <h4 matLine>订单状态：{{order.status}}</h4>
+    <p matLine class="demo-2"> {{order.startTime}} </p>
+    <mat-icon fontSet="ionicons" fontIcon="ion-ios-arrow-forward"></mat-icon>
+    <mat-divider></mat-divider>
+  </mat-list-item>
+  <ngx-loading [show]="loading" [config]="config"></ngx-loading>
+</mat-list>
+<ngx-toasta></ngx-toasta>

@@ -4,6 +4,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {ServiceModule} from '../service/service.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {AppRoutingModule} from '../app-routing.module';
+import {MatButtonModule, MatDividerModule, MatIconModule, MatListModule, MatTabsModule} from '@angular/material';
 
 @NgModule({
   declarations: [],
@@ -12,7 +13,19 @@ import {AppRoutingModule} from '../app-routing.module';
     HttpClientModule,
     ServiceModule.forRoot(),
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatTabsModule,
+    MatListModule,
+    MatIconModule,
+    MatDividerModule,
+    MatButtonModule
+  ],
+  exports: [
+    MatTabsModule,
+    MatListModule,
+    MatIconModule,
+    MatDividerModule,
+    MatButtonModule
   ],
   providers: [
     {

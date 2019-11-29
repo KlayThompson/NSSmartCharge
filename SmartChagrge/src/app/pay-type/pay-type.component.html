@@ -1,0 +1,25 @@
+<!--pages/rechargeTest/rechargeTest.wxml-->
+<div class='selfblock-container'>
+  <div class="title">充值类型</div>
+  <div class="subTitle">
+    <span>充值金额</span>
+  </div>
+  <div class="money">￥{{rechargeMoney}}</div>
+
+  <div class="recharge-type-container">
+    <div class="recharge-type-title">支付方式</div>
+    <div class="recharge-type-select" *ngFor="let item of payTypeArr" (click)="selectType(item)">
+      <img [src]="item.src" class="wx-icon-img" alt="">
+      {{item.label}}
+      <span class="tip-text" [hidden]="item.hiddenTip">铁塔和银联优惠活动即将开展</span>
+      <img [src]="item.isSelected ? checkedIcon : uncheckIcon" class="checked-icon-img {{item.isSelected ? '' : 'uncheck-icon-img'}}" alt="">
+    </div>
+  </div>
+  <div class="btn-view">
+    <button class="btn-recharge" (click)="goRecharge()">去充值</button>
+    <button class="btn-charging" (click)="goCharging()">开始充电</button>
+  </div>
+</div>
+<ngx-loading [show]="loading" [config]="config"></ngx-loading>
+
+<ngx-toasta></ngx-toasta>

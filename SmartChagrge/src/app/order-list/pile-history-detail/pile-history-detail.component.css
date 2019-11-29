@@ -1,0 +1,105 @@
+.full-container{
+  background-color:#f6f9f6;
+  height:100%;
+}
+.order-main-info{
+  background-color:#3ea874;
+  height:200px;
+  width:100%;
+  position:relative;
+  color:#fff;
+  text-align:center;
+  padding-top:50px;
+}
+.order-co-info{
+  font-size:16px;
+}
+.order-km-info{
+  font-size:48px;
+}
+.order-km-info-unit{
+  font-size:14px;
+}
+.order-wave-bk{
+  position:absolute;
+  height:55px;
+  left:0;
+  bottom:0;
+  right:0;
+}
+.order-wave-img{
+  width:100%;
+  height:100%;
+  z-index:10;
+}
+.order-km-form{
+  position:absolute;
+  bottom:20px;
+  color:#fdfff7;
+  font-size:12px;
+  z-index:100;
+  left:0;
+  right:0;
+  text-align:center;
+  opacity:0.69;
+}
+.order-detail-item-name{
+  font-size:15px;
+  opacity:0.6;
+}
+.order-detail-item{
+  margin:0 15px;
+  height:35px;
+  line-height:35px;
+}
+.each-list-item{
+  margin:0 15px;
+  font-size:12px;
+  height:25px;
+  line-height:25px;
+}
+.each-list-item-name{
+  color:#7c7e82;
+}
+.order-elec-info{
+  color:#262930;
+  background-color:#fefefe;
+  margin-top:10px;
+  border-top:1px solid #dcdcdc;
+  border-bottom:1px solid #dcdcdc;
+}
+.order-money-info{
+  color:#262930;
+  margin-top:10px;
+  background-color:#fefefe;
+  border-top:1px solid #dcdcdc;
+  border-bottom:1px solid #dcdcdc;
+}
+.order-device-info{
+  margin-top:10px;
+  background-color:#fefefe;
+  border-top:1px solid #dcdcdc;
+  border-bottom:1px solid #dcdcdc;
+}
+.has-border-bottom{
+  border-bottom:1px solid #dcdcdc
+}
+.order-final-pay-num{
+  float:right;
+  color:#45bb81;
+  font-size:14px;
+}
+.order-final-pay-title{
+  float:right;
+  color:#262930;
+  font-size:14px;
+  margin-right:10px;
+}
+.each-list-item-value{
+  float: right;
+}
+.order-detail-item-value{
+  float: right;
+  font-size:14px;
+  color:#262930;
+}

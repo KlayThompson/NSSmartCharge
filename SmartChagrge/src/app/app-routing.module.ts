@@ -9,6 +9,8 @@ import {AppComponent} from './app.component';
 import {PileChargingComponent} from './pile-charging/pile-charging.component';
 import {UserCenterComponent} from './user-center/user-center.component';
 import {OrderListComponent} from './order-list/order-list.component';
+import {PileHistoryDetailComponent} from './order-list/pile-history-detail/pile-history-detail.component';
+import {PayTypeComponent} from './pay-type/pay-type.component';
 
 const routes: Routes = [
   {
@@ -25,6 +27,8 @@ const routes: Routes = [
           {path: 'pileCharging', component: PileChargingComponent},
           {path: 'user', component: UserCenterComponent},
           {path: 'orderList', component: OrderListComponent},
+          {path: 'pileOrderDetail', component: PileHistoryDetailComponent},
+          {path: 'payType', component: PayTypeComponent},
           {path: '', redirectTo: '/home', pathMatch: 'full'},
         ]
       }
