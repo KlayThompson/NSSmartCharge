@@ -26,6 +26,7 @@
 input {
   padding-left: 25px;
   width: 50%;
+  border: none;
 }
 
 .code {

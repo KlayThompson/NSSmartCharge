@@ -12,7 +12,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  // 1.切换用户按钮2.去充值按钮背景视图3.orderList的loading区域
   scanCode() {
     this.router.navigate(['/pileInfo', {pileNum: '00000868343040852209'}]);
   }

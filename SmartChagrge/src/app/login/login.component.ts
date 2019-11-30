@@ -96,4 +96,8 @@ export class LoginComponent implements OnInit, OnDestroy {
     }
     this.count = 60;
   }
+
+  showServiceProtocol() {
+    console.log('用户协议');
+  }
 }

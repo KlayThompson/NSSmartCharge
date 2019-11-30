@@ -18,4 +18,7 @@ export class UserCenterComponent implements OnInit {
   ngOnInit() {
   }
 
+  changeUser() {
+    console.log('change user');
+  }
 }
