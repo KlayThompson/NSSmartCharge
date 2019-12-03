@@ -13,7 +13,6 @@ export class PileService {
   constructor(private http: HttpClient,  @Inject('BASE_CONFIG') private config) {
     const timeInterval = Date.parse(new Date().toString()) / 1000;
     const token = localStorage.getItem('TOKEN');
-
     const sign = Md5.hashStr(timeInterval + this.config.appKey);
     this.headers = new HttpHeaders({
       'Content-Type': 'application/json; charset=UTF-8',

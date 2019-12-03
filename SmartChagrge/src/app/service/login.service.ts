@@ -31,4 +31,14 @@ export class LoginService {
     const uri = `${this.config.uri}/v1/chargingapi/usersByMobilePhone`;
     return this.http.post<LoginModel>(uri, {phoneNumber: phoneNum, smsCode: vCode}, {headers: this.headers});
   }
+
+  getAccessToken(): Observable <any> {
+    const uri = `/cgi-bin/token?grant_type=client_credential&appid=${this.config.wxAppId}&secret=${this.config.wxAppSecret}`;
+    return this.http.get(uri, {headers: this.headers});
+  }
+
+  getJsApiTicket(token: string): Observable<any> {
+    const  uri = `/cgi-bin/ticket/getticket?access_token=${token}&type=jsapi`;
+    return this.http.get(uri);
+  }
 }

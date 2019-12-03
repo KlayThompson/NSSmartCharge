@@ -33,7 +33,9 @@ import {MatButtonModule, MatDividerModule, MatIconModule, MatListModule, MatTabs
       useValue: {
         uri: 'http://139.198.176.116:12333',  // dev
         appKey: 'UtOCzqb67d3sN12Kts4URwy8',
-        appId: '123'
+        appId: '123',
+        wxAppId: 'wx81406d42b4c87662',
+        wxAppSecret: 'fe1c1f3282d0cb025d459880be71dae3'
       }
     }
   ]

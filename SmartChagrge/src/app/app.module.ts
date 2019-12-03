@@ -17,6 +17,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { PileHistoryComponent } from './order-list/pile-history/pile-history.component';
 import { PileHistoryDetailComponent } from './order-list/pile-history-detail/pile-history-detail.component';
 import { PayTypeComponent } from './pay-type/pay-type.component';
+import {NgxAmapModule} from 'ngx-amap';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,9 @@ import { PayTypeComponent } from './pay-type/pay-type.component';
       fullScreenBackdrop: true
     }),
     ToastaModule.forRoot(),
+    NgxAmapModule.forRoot({
+      apiKey: 'ea449bb1e5e76cd10e57990bb126fdb1'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
