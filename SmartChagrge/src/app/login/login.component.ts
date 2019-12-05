@@ -2,7 +2,8 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ngxLoadingAnimationTypes} from 'ngx-loading';
 import {ToastService} from '../service/toast.service';
 import {LoginService} from '../service/login.service';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
+import {timeInterval} from 'rxjs/operators';
 
 @Component({
   selector: 'app-login',
@@ -28,11 +29,20 @@ export class LoginComponent implements OnInit, OnDestroy {
   constructor(
     private toastService: ToastService,
     private loginService: LoginService,
-    private router: Router
-  ) { }
+    private router: Router,
+    private route: ActivatedRoute,
+  ) {}
 
   ngOnInit() {
-    console.log('');
+    this.route.paramMap.subscribe( pmap => {
+      const showToast = pmap.get('showToast');
+      if (showToast) {
+        const that = this;
+        setTimeout( () => {
+          that.showErrorToast();
+        }, 100);
+      }
+    });
   }
 
   loginButtonClick() {
@@ -99,5 +109,9 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   showServiceProtocol() {
     console.log('用户协议');
+  }
+
+  showErrorToast() {
+    this.toastService.showToast('Token失效，请重新登录', 'error');
   }
 }

@@ -41,4 +41,9 @@ export class LoginService {
     const  uri = `/cgi-bin/ticket/getticket?access_token=${token}&type=jsapi`;
     return this.http.get(uri);
   }
+
+  getSign(url: string): Observable<any> {
+    const uri = `http://172.18.8.65:12332/v1/chargingapi/wx/config/?url=${url}`;
+    return this.http.get(uri, {headers: this.headers});
+  }
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-user-center',
@@ -13,12 +14,14 @@ export class UserCenterComponent implements OnInit {
   batteryUrl = '../battery/battery';
   packageUrl = '../package/package';
   orderListUrl = '/orderList';
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
 
   changeUser() {
     console.log('change user');
+    localStorage.clear();
+    this.router.navigate(['/login']);
   }
 }

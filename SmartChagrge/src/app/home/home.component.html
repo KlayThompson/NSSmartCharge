@@ -4,11 +4,11 @@
   <!--</div>-->
   <!--<button class="btn btn-primary" (click)="scanCode()">扫码</button>-->
   <!--<button class="btn btn-info float-right" (click)="goUser()">用户</button>-->
-  <ngx-amap id="map"></ngx-amap>
-  <!--<div id="up-map-div">1234444</div>-->
+  <ngx-amap id="map" [zoom]="15" [center]="[lng, lat]"></ngx-amap>
   <img class="scan-img" [ngStyle]="{left: scanLeft}" src="../../assets/map_scan.jpg" alt="" (click)="scanCode()">
   <img class="user-img" src="../../assets/map_user.png" alt="" routerLink="/user">
-  <img class="locate-img" src="../../assets/locate.png" alt="">
+  <img class="locate-img" src="../../assets/locate.png" alt="" (click)="moveToCenter()">
   <img class="search-img" src="../../assets/map_search.png" alt="">
   <img class="center-img" [ngStyle]="{left: centerLeft, top: centerTop}" src="../../assets/selected_location.png" alt="">
 </div>
+<ngx-toasta></ngx-toasta>

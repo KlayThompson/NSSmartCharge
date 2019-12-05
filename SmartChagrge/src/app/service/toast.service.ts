@@ -19,7 +19,7 @@ export class ToastService {
     const toastOptions: ToastOptions = {
       title: value,
       msg: '',
-      showClose: true,
+      showClose: false,
       timeout: 3000,
       theme: 'material',
       showDuration: false

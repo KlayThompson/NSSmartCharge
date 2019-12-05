@@ -1,7 +1,9 @@
 <mat-tab-group mat-align-tabs="center">
   <mat-tab label="充电桩">
-    <app-pile-history></app-pile-history>
+    <app-pile-history (loadingEmit)="changeLoadingState($event)" (showErrorToastEmit)="showError($event)"></app-pile-history>
   </mat-tab>
   <mat-tab label="充电柜"> Content 2 </mat-tab>
   <mat-tab label="换电柜"> Content 3 </mat-tab>
 </mat-tab-group>
+<ngx-loading [show]="loading" [config]="config"></ngx-loading>
+<ngx-toasta></ngx-toasta>

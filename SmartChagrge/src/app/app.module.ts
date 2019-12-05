@@ -45,7 +45,7 @@ import {NgxAmapModule} from 'ngx-amap';
     ToastaModule.forRoot(),
     NgxAmapModule.forRoot({
       apiKey: 'ea449bb1e5e76cd10e57990bb126fdb1'
-    })
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,7 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {PileService} from '../../service/pile.service';
-import {ngxLoadingAnimationTypes} from 'ngx-loading';
-import {ToastService} from '../../service/toast.service';
 import {PileOrderModel} from '../../model/pile.model';
 import {Router} from '@angular/router';
 
@@ -12,22 +10,22 @@ import {Router} from '@angular/router';
 })
 export class PileHistoryComponent implements OnInit {
   orderList: PileOrderModel[] = [];
-  loading = false;
-  config = {animationType: ngxLoadingAnimationTypes.rectangleBounce};
+  @Output() loadingEmit = new EventEmitter<boolean>();
+  @Output() showErrorToastEmit = new EventEmitter<string>();
+
   constructor(
     private pileService: PileService,
-    private toastService: ToastService,
     private router: Router
   ) { }
 
   ngOnInit() {
-    this.loading = true;
+    this.loadingEmit.emit(true);
     this.pileService.getPileChargeRocord(1).subscribe(value => {
-      this.loading = false;
+      this.loadingEmit.emit(false);
       this.orderList = value.recordInfos;
     }, () => {
-      this.loading = false;
-      this.toastService.showToast('数据加载失败', 'error');
+      this.loadingEmit.emit(false);
+      this.showErrorToastEmit.emit('数据加载失败');
     });
   }
 

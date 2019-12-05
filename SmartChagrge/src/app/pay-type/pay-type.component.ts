@@ -22,9 +22,15 @@ export class PayTypeComponent implements OnInit {
   uncheckIcon = '../../assets/icon_unselected.png';
   payTypeArr = [
     {
+      label: '钱包',
+      src: '../../assets/wallet_type.png',
+      isSelected: true,
+      hiddenTip: true
+    },
+    {
       label: '银联',
       src: '../../assets/yinlian.png',
-      isSelected: true,
+      isSelected: false,
       hiddenTip: false
     },
     {
@@ -33,12 +39,12 @@ export class PayTypeComponent implements OnInit {
       isSelected: false,
       hiddenTip: true
     },
-    {
-      label: '支付宝',
-      src: '../../assets/pay_alipay.png',
-      isSelected: false,
-      hiddenTip: true
-    }
+    // {
+    //   label: '支付宝',
+    //   src: '../../assets/pay_alipay.png',
+    //   isSelected: false,
+    //   hiddenTip: true
+    // }
     ];
 
   constructor(
@@ -80,7 +86,14 @@ export class PayTypeComponent implements OnInit {
       this.router.navigate(['/pileCharging', {recordId: value.recordId}]);
     }, error1 => {
       this.loading = false;
-      this.toastService.showToast('开启充电失败！', 'error');
+      if (error1.status === 401) { // 重新登录
+        this.router.navigate(['/login', {showToast: true}]);
+      } else if (error1.status === 403) {
+        this.toastService.showToast(error1.error.msg, 'error');
+      } else {
+        this.loading = false;
+        this.toastService.showToast('开启充电失败！', 'error');
+      }
     });
   }
 }
