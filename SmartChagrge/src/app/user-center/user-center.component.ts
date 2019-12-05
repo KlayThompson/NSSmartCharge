@@ -18,13 +18,28 @@ export class UserCenterComponent implements OnInit {
   }
 
   changeUser() {
-    console.log('change user');
-    // localStorage.clear();
-    // this.router.navigate(['/login']);
-    if (window.confirm('确认退出登录吗')) {
-      console.log('退出登录');
-    } else {
-      console.log('取消');
+    const wConfirm = window.confirm;
+    window.confirm =  (message) => {
+      try {
+        const iframe = document.createElement('IFRAME');
+        iframe.style.display = 'none';
+        iframe.setAttribute('src', 'data:text/plain,');
+        document.documentElement.appendChild(iframe);
+        const alertFrame = window.frames[0];
+        let iwindow = alertFrame.window;
+        if (iwindow === undefined) {
+          iwindow = alertFrame.contentWindow;
+        }
+        const result = iwindow.confirm(message);
+        iframe.parentNode.removeChild(iframe);
+        return result;
+      } catch (exc) {
+        return wConfirm(message);
+      }
+    };
+    if (confirm('确认退出登录吗')) {
+      localStorage.clear();
+      this.router.navigate(['/login']);
     }
   }
 }
