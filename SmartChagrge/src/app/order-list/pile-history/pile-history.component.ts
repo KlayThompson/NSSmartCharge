@@ -23,9 +23,15 @@ export class PileHistoryComponent implements OnInit {
     this.pileService.getPileChargeRocord(1).subscribe(value => {
       this.loadingEmit.emit(false);
       this.orderList = value.recordInfos;
-    }, () => {
+    }, error1 => {
       this.loadingEmit.emit(false);
-      this.showErrorToastEmit.emit('数据加载失败');
+      if (error1.status === 401) { // 重新登录
+        this.router.navigate(['/login', {showToast: true}]);
+      } else if (error1.status === 403) {
+        this.showErrorToastEmit.emit(error1.error.msg);
+      } else {
+        this.showErrorToastEmit.emit('数据加载失败');
+      }
     });
   }
 

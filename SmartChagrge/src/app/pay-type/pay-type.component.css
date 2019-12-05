@@ -92,15 +92,13 @@
 }
 
 .btn-view {
-  margin-top: 100px;
+  height: 200px;
 }
 
 button {
-  width: 125px;
-  border-radius: 30px;
-  background: #09508e;
-  color: white;
+  width: 100%;
   font-size: 16px;
+  margin-top: 100px;
 }
 
 .btn-charging {

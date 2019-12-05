@@ -123,11 +123,15 @@ page{
 }
 
 button {
-  background-color: #09508e;
-  color: white;
+  width: 100%;
+  font-size: 16px;
 }
 
 .subTitle {
   padding-top: 20px;
   /* background-color: white; */
+}
+
+.btn-view {
+  height: 80px;
 }

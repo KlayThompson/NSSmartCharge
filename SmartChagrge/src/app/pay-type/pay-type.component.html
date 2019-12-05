@@ -15,9 +15,10 @@
       <img [src]="item.isSelected ? checkedIcon : uncheckIcon" class="checked-icon-img {{item.isSelected ? '' : 'uncheck-icon-img'}}" alt="">
     </div>
   </div>
-  <div class="btn-view">
-    <button class="btn-recharge" (click)="goRecharge()">去充值</button>
-    <button class="btn-charging" (click)="goCharging()">开始充电</button>
+  <div class="container-fluid btn-view">
+    <!--<button class="btn-recharge" (click)="goRecharge()">去充值</button>-->
+    <!--<button class="btn-charging" (click)="goCharging()">开始充电</button>-->
+    <button mat-raised-button color="primary" (click)="goCharging()">开始充电</button>
   </div>
 </div>
 <ngx-loading [show]="loading" [config]="config"></ngx-loading>

@@ -34,7 +34,10 @@
   </div>
   <div class="price-text">1元3小时，2元6小时</div>
   <div class="tip-text"><span class="title">温馨提示：</span>开启充电前请务必先确保已连接插头，充电金额自动从钱包扣除，如余额不足可在线充值</div>
-  <button class="btn btn-block" [disabled]="submitDisable" (click)="startCharge()">选择支付方式</button>
+  <!--<button class="btn btn-block" [disabled]="submitDisable" (click)="startCharge()">选择支付方式</button>-->
+  <div class="btn-view">
+    <button mat-raised-button color="primary" [disabled]="submitDisable" (click)="startCharge()">选择支付方式</button>
+  </div>
   <ngx-loading [show]="loading" [config]="config"></ngx-loading>
 </div>
 <ngx-toasta></ngx-toasta>
