@@ -9,11 +9,9 @@ import {Router} from '@angular/router';
 export class UserCenterComponent implements OnInit {
 
   userName = '18217602034';
-  walletUrl = '../wallet/wallet';
   carUrl = '../car/car';
   batteryUrl = '../battery/battery';
   packageUrl = '../package/package';
-  orderListUrl = '/orderList';
   constructor(private router: Router) { }
 
   ngOnInit() {
@@ -21,7 +19,12 @@ export class UserCenterComponent implements OnInit {
 
   changeUser() {
     console.log('change user');
-    localStorage.clear();
-    this.router.navigate(['/login']);
+    // localStorage.clear();
+    // this.router.navigate(['/login']);
+    if (window.confirm('确认退出登录吗')) {
+      console.log('退出登录');
+    } else {
+      console.log('取消');
+    }
   }
 }

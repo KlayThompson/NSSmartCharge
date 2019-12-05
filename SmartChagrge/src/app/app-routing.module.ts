@@ -11,6 +11,8 @@ import {UserCenterComponent} from './user-center/user-center.component';
 import {OrderListComponent} from './order-list/order-list.component';
 import {PileHistoryDetailComponent} from './order-list/pile-history-detail/pile-history-detail.component';
 import {PayTypeComponent} from './pay-type/pay-type.component';
+import {WalletComponent} from './wallet/wallet.component';
+import {RechargeComponent} from './recharge/recharge.component';
 
 const routes: Routes = [
   {
@@ -29,6 +31,8 @@ const routes: Routes = [
           {path: 'orderList', component: OrderListComponent},
           {path: 'pileOrderDetail', component: PileHistoryDetailComponent},
           {path: 'payType', component: PayTypeComponent},
+          {path: 'wallet', component: WalletComponent},
+          {path: 'recharge', component: RechargeComponent},
           {path: '', redirectTo: '/home', pathMatch: 'full'},
         ]
       }

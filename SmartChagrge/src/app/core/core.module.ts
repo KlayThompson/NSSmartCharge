@@ -4,7 +4,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {ServiceModule} from '../service/service.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {AppRoutingModule} from '../app-routing.module';
-import {MatButtonModule, MatDividerModule, MatIconModule, MatListModule, MatTabsModule} from '@angular/material';
+import {MatButtonModule, MatDividerModule, MatIconModule, MatInputModule, MatListModule, MatTabsModule} from '@angular/material';
 
 @NgModule({
   declarations: [],
@@ -18,14 +18,16 @@ import {MatButtonModule, MatDividerModule, MatIconModule, MatListModule, MatTabs
     MatListModule,
     MatIconModule,
     MatDividerModule,
-    MatButtonModule
+    MatButtonModule,
+    MatInputModule
   ],
   exports: [
     MatTabsModule,
     MatListModule,
     MatIconModule,
     MatDividerModule,
-    MatButtonModule
+    MatButtonModule,
+    MatInputModule,
   ],
   providers: [
     {

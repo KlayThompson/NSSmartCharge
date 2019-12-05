@@ -18,6 +18,8 @@ import { PileHistoryComponent } from './order-list/pile-history/pile-history.com
 import { PileHistoryDetailComponent } from './order-list/pile-history-detail/pile-history-detail.component';
 import { PayTypeComponent } from './pay-type/pay-type.component';
 import {NgxAmapModule} from 'ngx-amap';
+import { WalletComponent } from './wallet/wallet.component';
+import { RechargeComponent } from './recharge/recharge.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import {NgxAmapModule} from 'ngx-amap';
     OrderListComponent,
     PileHistoryComponent,
     PileHistoryDetailComponent,
-    PayTypeComponent
+    PayTypeComponent,
+    WalletComponent,
+    RechargeComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,77 @@
+/* pages/recharge/recharge.wxss */
+.selfblock-container {
+  height: 100vh;
+  width: 100%;
+  /*background-color: #f6f9f6;*/
+}
+
+.title {
+  font-size: 25px;
+  font-weight: 500;
+  margin-left: 15px;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  color: #333;
+}
+
+.recharge-select {
+  margin: 0 16px 16px 16px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.each-recharge-select {
+  width: 47%;
+  height: 80px;
+  font-size: 16px;
+  line-height: 80px;
+  text-align: center;
+  border-radius:3px;
+  border: 1px solid lightgray;
+  color: #333;
+  font-weight: 500;
+}
+
+.choose-money {
+  width: 47%;
+  height: 80px;
+  font-size: 16px;
+  line-height: 80px;
+  text-align: center;
+  border-radius: 3px;
+  border: 1px solid #3f51b5;
+  color: #fff;
+  background-color: #3f51b5;
+  font-weight: 500;
+}
+
+.recharge-btn-group{
+  width: 84%;
+  margin: 0 auto;
+  position: relative;
+  top:50px;
+  height: 100px;
+}
+.recharge-text{
+  color:#a6a9b0;
+  font-size: 12px;
+  text-align: left;
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+.recharge-agreement{
+  color:#48abff;
+  float: left;
+}
+.recharge-btn{
+  width: 100%;
+  height: 48px;
+  line-height: 48px;
+  /*background-color: #09508e;*/
+  font-size:14px;
+  color:#fff;
+}
+
+.agree-agreement{
+  float:left;
+}

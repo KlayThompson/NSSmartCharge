@@ -1,0 +1,31 @@
+<!--pages/recharge/recharge.wxml-->
+<div class="selfblock-container">
+  <div class="title">钱包充值</div>
+  <div class="recharge-select">
+    <div class="{{oneChoose?'choose-money':'each-recharge-select'}}" (click)="chooseRechargeMoney(99)">充99元</div>
+    <div class="{{twoChoose? 'choose-money':'each-recharge-select'}}" (click)="chooseRechargeMoney(199)">充199元</div>
+  </div>
+  <div class="recharge-select">
+    <div class="{{threeChoose? 'choose-money' :'each-recharge-select'}}" (click)="chooseRechargeMoney(299)">充299元</div>
+    <div class="{{fourChoose? 'choose-money':'each-recharge-select'}}" (click)="chooseRechargeMoney(599)">充599元</div>
+
+  </div>
+  <div class="recharge-select">
+    <div class="{{fiveChoose? 'choose-money':'each-recharge-select'}} mat-primary" (click)="chooseRechargeMoney(350)">充350元</div>
+  </div>
+  <div class="container-fluid">
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="请输入充值金额" type="tel" maxlength="8" (ngModelChange)="change($event)" [(ngModel)]="inputMoney">
+    </mat-form-field>
+  </div>
+  <div class="recharge-btn-group">
+    <div class="recharge-text">
+      <span class="agree-agreement">点击立即充值, 即表示已阅读并同意</span>
+      <span class="recharge-agreement">《充值协议》</span>
+    </div>
+    <!--<button class="recharge-btn" (click)="goRecharge">立即充值</button>-->
+    <div class="btn-bg-view">
+      <button class="recharge-btn" color="primary" mat-raised-button>立即充值</button>
+    </div>
+  </div>
+</div>
