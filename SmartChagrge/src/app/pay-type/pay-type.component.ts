@@ -4,6 +4,7 @@ import {PileService} from '../service/pile.service';
 import {ToastService} from '../service/toast.service';
 import {Location} from '@angular/common';
 import {ngxLoadingAnimationTypes} from 'ngx-loading';
+import {UserService} from '../service/user.service';
 
 @Component({
   selector: 'app-pay-type',
@@ -20,6 +21,7 @@ export class PayTypeComponent implements OnInit {
   switchId = '';
   checkedIcon = '../../assets/checked-icon.png';
   uncheckIcon = '../../assets/icon_unselected.png';
+  currentMoney = 0;
   payTypeArr = [
     {
       label: '钱包',
@@ -52,7 +54,8 @@ export class PayTypeComponent implements OnInit {
     private toastService: ToastService,
     private router: Router,
     private route: ActivatedRoute,
-    private location: Location
+    private location: Location,
+    private userService: UserService
   ) {
     this.route.paramMap.subscribe(pmap => {
       this.rechargeMoney = pmap.get('selectMoney');
@@ -64,6 +67,20 @@ export class PayTypeComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.loading = true;
+    this.userService.getUserInfo().subscribe(value => {
+      this.currentMoney = value.balance / 100;
+      this.loading = false;
+    }, error1 => {
+      this.loading = false;
+      if (error1.status === 401) { // 重新登录
+        this.router.navigate(['/login', {showToast: true}]);
+      } else if (error1.status === 403) {
+        this.toastService.showToast(error1.error.msg, 'error');
+      } else {
+        this.toastService.showToast('数据加载失败！', 'error');
+      }
+    });
   }
 
   selectType(item: any) {
@@ -73,7 +90,7 @@ export class PayTypeComponent implements OnInit {
   }
 
   goRecharge() {
-    console.log('去充值');
+    this.router.navigate(['/recharge']);
   }
 
   goCharging() {
@@ -91,7 +108,6 @@ export class PayTypeComponent implements OnInit {
       } else if (error1.status === 403) {
         this.toastService.showToast(error1.error.msg, 'error');
       } else {
-        this.loading = false;
         this.toastService.showToast('开启充电失败！', 'error');
       }
     });

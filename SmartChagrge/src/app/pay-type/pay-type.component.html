@@ -12,13 +12,19 @@
       <img [src]="item.src" class="wx-icon-img" alt="">
       {{item.label}}
       <span class="tip-text" [hidden]="item.hiddenTip">铁塔和银联优惠活动即将开展</span>
+      <span *ngIf="item.label === '钱包'" class="tip-text">当前余额：<span style="font-weight: bold; color: #333;font-size: medium">￥{{currentMoney}}</span> </span>
       <img [src]="item.isSelected ? checkedIcon : uncheckIcon" class="checked-icon-img {{item.isSelected ? '' : 'uncheck-icon-img'}}" alt="">
     </div>
   </div>
-  <div class="container-fluid btn-view">
+  <div class="btn-view container-fluid">
     <!--<button class="btn-recharge" (click)="goRecharge()">去充值</button>-->
     <!--<button class="btn-charging" (click)="goCharging()">开始充电</button>-->
-    <button mat-raised-button color="primary" (click)="goCharging()">开始充电</button>
+    <div class="left-btn">
+      <button mat-raised-button color="primary" (click)="goRecharge()">去充值</button>
+    </div>
+    <div class="right-btn">
+      <button mat-raised-button color="primary" (click)="goCharging()">开始充电</button>
+    </div>
   </div>
 </div>
 <ngx-loading [show]="loading" [config]="config"></ngx-loading>

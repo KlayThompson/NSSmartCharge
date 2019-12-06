@@ -77,9 +77,9 @@ export class HomeComponent implements OnInit {
         signature: value.signature, // 必填，签名
         jsApiList: ['scanQRCode'] // 必填，需要使用的JS接口列表
       });
-      const that = this;
+      // const that = this;
       wx.ready( () => {
-        that.toastService.showToast('配置成功');
+        // that.toastService.showToast('配置成功');
       });
       wx.error( err => {
         // config信息验证失败会执行error函数，如签名过期导致验证失败，具体错误信息可以打开config的debug模式查看，也可以在返回的res参数中查看，对于SPA可以在这里更新签名。

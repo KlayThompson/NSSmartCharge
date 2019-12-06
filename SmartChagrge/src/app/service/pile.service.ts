@@ -40,7 +40,7 @@ export class PileService {
     return this.http.get<PileOrderModel>(uri, {headers: this.headers});
   }
 
-  getPileChargeRocord(currentPage: number):Observable<PileOrderListModel> {
+  getPileChargeRocord(currentPage: number): Observable<PileOrderListModel> {
     const uri = `${this.config.uri}/v1/chargingapi/pile/record/recent?currentPage=${currentPage}`;
     return this.http.get<PileOrderListModel>(uri, {headers: this.headers});
   }

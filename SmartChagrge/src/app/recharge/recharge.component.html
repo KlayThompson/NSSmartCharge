@@ -15,7 +15,7 @@
   </div>
   <div class="container-fluid">
     <mat-form-field class="example-full-width">
-      <input matInput placeholder="请输入充值金额" type="tel" maxlength="8" (ngModelChange)="change($event)" [(ngModel)]="inputMoney">
+      <input matInput placeholder="请输入充值金额" type="number" (ngModelChange)="change($event)" [(ngModel)]="inputMoney">
     </mat-form-field>
   </div>
   <div class="recharge-btn-group">
@@ -25,7 +25,9 @@
     </div>
     <!--<button class="recharge-btn" (click)="goRecharge">立即充值</button>-->
     <div class="btn-bg-view">
-      <button class="recharge-btn" color="primary" mat-raised-button>立即充值</button>
+      <button class="recharge-btn" color="primary" mat-raised-button (click)="recharge()">立即充值</button>
     </div>
   </div>
 </div>
+<ngx-toasta></ngx-toasta>
+<ngx-loading [show]="loading" [config]="config"></ngx-loading>

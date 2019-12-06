@@ -1,4 +1,8 @@
 import {Component, OnInit} from '@angular/core';
+import {PayService} from '../service/pay.service';
+import {ngxLoadingAnimationTypes} from 'ngx-loading';
+import {ToastService} from '../service/toast.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-recharge',
@@ -14,10 +18,53 @@ export class RechargeComponent implements OnInit {
   fiveChoose = false;
   selectMoney = 99;
   inputMoney: number;
-  constructor() {
+  loading = false;
+  config = {animationType: ngxLoadingAnimationTypes.rectangleBounce};
+  constructor(
+    private payService: PayService,
+    private toastService: ToastService,
+    private router: Router,
+  ) {
   }
 
   ngOnInit() {
+  }
+
+  recharge() {
+    const money = this.selectMoney * 100;
+    this.loading = true;
+    this.payService.rechargeMoney('云闪付', money).subscribe(value => {
+      this.loading = false;
+      // 请求成功直接调用查询充值记录接口 for test
+      this.queryRechargeDetail(value.rechargeNumber);
+    }, error1 => {
+      this.loading = false;
+      if (error1.status === 401) { // 重新登录
+        this.router.navigate(['/login', {showToast: true}]);
+      } else if (error1.status === 403) {
+        this.toastService.showToast(error1.error.msg, 'error');
+      } else {
+        this.toastService.showToast('充值失败，请检查网络', 'error');
+      }
+    });
+  }
+
+  queryRechargeDetail(num: string) {
+    this.payService.getRechargeOrderByRechargeNum(num).subscribe(value => {
+      history.go(-1);
+      const that = this;
+      setTimeout( () => {
+        that.toastService.showToast('充值成功');
+      }, 100);
+    }, error1 => {
+      if (error1.status === 401) { // 重新登录
+        this.router.navigate(['/login', {showToast: true}]);
+      } else if (error1.status === 403) {
+        this.toastService.showToast(error1.error.msg, 'error');
+      } else {
+        this.toastService.showToast('查询失败，请检查网络', 'error');
+      }
+    });
   }
 
   chooseRechargeMoney(money: number) {
