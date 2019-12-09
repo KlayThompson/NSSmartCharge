@@ -12,7 +12,10 @@
       <ng-template #countView><span class="count-down">{{count}}秒</span></ng-template>
     </div></div>
 
-  <button class="btn btn-block login-button" (click)="loginButtonClick()">登录</button>
+  <!--<button class="btn btn-block login-button" (click)="loginButtonClick()">登录</button>-->
+  <div class="btn-view">
+    <button mat-raised-button color="primary" (click)="loginButtonClick()">登录</button>
+  </div>
 
   <div class='phone-login-bottom-protocol'>
     <div class='aggree-protocol-normal'>点击登录, 即表示已阅读并同意</div>

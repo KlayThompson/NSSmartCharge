@@ -22,7 +22,7 @@ export class PayService {
       'session-token': token
     });
   }
-
+  // 支付渠道：(1)ALI:支付宝(2)WX:微信(3)YRF:云闪付(目前使用这种)
   rechargeMoney(channelStr: string, rechargeAmountNum: number, rechargeTypeStr: string = 'BALANCE'): Observable<PayModel> {
     const uri = `${this.config.uri}/v1/chargingapi/pay/recharge`;
     return this.http.post<PayModel>(

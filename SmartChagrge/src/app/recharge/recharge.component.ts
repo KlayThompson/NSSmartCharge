@@ -33,7 +33,8 @@ export class RechargeComponent implements OnInit {
   recharge() {
     const money = this.selectMoney * 100;
     this.loading = true;
-    this.payService.rechargeMoney('云闪付', money).subscribe(value => {
+    // 支付渠道：(1)ALI:支付宝(2)WX:微信(3)YRF:云闪付(目前使用这种)
+    this.payService.rechargeMoney('YRF', money).subscribe(value => {
       this.loading = false;
       // 请求成功直接调用查询充值记录接口 for test
       this.queryRechargeDetail(value.rechargeNumber);

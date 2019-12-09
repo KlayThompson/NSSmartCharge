@@ -1,4 +1,4 @@
-import {Component, ElementRef, Inject, OnInit, ViewChild} from '@angular/core';
+import {Component, ElementRef, Inject, NgZone, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {Router} from '@angular/router';
 import {LoginService} from '../service/login.service';
 import {ToastService} from '../service/toast.service';
@@ -6,6 +6,7 @@ import {
   AmapGeocoderService,
   AmapGeocoderWrapper,
 } from 'ngx-amap';
+import {Observable} from 'rxjs';
 
 
 declare var wx: any;
@@ -15,13 +16,15 @@ declare var wx: any;
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnDestroy {
   @ViewChild('mainScreen') elementView: ElementRef;
   scanLeft: string;
   centerLeft: string;
   centerTop: string;
   lng = 0;
   lat = 0;
+  timeInterval;
+  pileNum: string;
   private geoPromise: Promise<AmapGeocoderWrapper>;
 
   constructor(
@@ -29,9 +32,16 @@ export class HomeComponent implements OnInit {
     private loginService: LoginService,
     private toastService: ToastService,
     private AmapGeocoder: AmapGeocoderService,
+    private zone: NgZone,
     @Inject('BASE_CONFIG') private config
     ) {
     this.geoPromise = AmapGeocoder.of();
+  }
+
+  ngOnDestroy(): void {
+    if (this.timeInterval) {
+      clearInterval(this.timeInterval);
+    }
   }
 
   ngOnInit() {
@@ -43,17 +53,25 @@ export class HomeComponent implements OnInit {
       });
     this.adjustUI();
     this.configWxJsApi();
+    // const res = localStorage.getItem('dataStr');
+    // if (res && res.length > 0) {
+    //   localStorage.setItem('dataStr', '');
+    //   this.router.navigate(['/pileInfo', {pileNum: res}]);
+    // }
   }
 
   scanCode() {
+    const that = this;
     wx.scanQRCode({
       needResult: 1, // 默认为0，扫描结果由微信处理，1则直接返回扫描结果，
       scanType: ['qrCode'], // 可以指定扫二维码还是一维码，默认二者都有
       success: res => {
         const result = res.resultStr; // 当needResult 为 1 时，扫码返回的结果
-        this.toastService.showToast(`结果为${result}`);
         if (result) {
-          this.router.navigate(['/pileInfo', {pileNum: result}]);
+          this.pileNum = result;
+          this.zone.run( () => { // 1.此方法 2.倒计时30秒...
+            this.router.navigate(['/pileInfo', {pileNum: result}]);
+          });
         }
       },
       fail: fail1 => {
@@ -70,8 +88,8 @@ export class HomeComponent implements OnInit {
     const url = location.href.split('#')[0];
     this.loginService.getSign(url).subscribe(value => {
       wx.config({
-        debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
-        appId: this.config.appId, // 必填，公众号的唯一标识
+        debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+        appId: this.config.wxAppId, // 必填，公众号的唯一标识
         timestamp: value.timestamp, // 必填，生成签名的时间戳
         nonceStr: value.noncestr, // 必填，生成签名的随机串
         signature: value.signature, // 必填，签名
